@@ -1,0 +1,56 @@
+Cloning "https://github.com/cjneto/DO288-apps" ...
+	Commit:	e35be174d0b0b19d0627d3676ada6cba81f8c606 (reversing change)
+	Author:	Student User <student@workstation.lab.example.com>
+	Date:	Wed Aug 12 22:30:05 2020 +0000
+Caching blobs under "/var/cache/blobs".
+Getting image source signatures
+Copying blob sha256:e7021e0589e97471d99c4265b7c8e64da328e48f116b5f260353b2e0a2adb373
+Copying blob sha256:9e7a6dc796f0a75c560158a9f9e30fb8b5a90cb53edce9ffbdf5778406e4de39
+Copying blob sha256:fc5b206e9329a1674dd9e8efbee45c9be28d0d0dcbabba3c6bb67a2f22cfcf2a
+Copying blob sha256:9a0a629e11c896fb5c92c3ede513fa50843042f978963a2a9e31288d1a7d5489
+Copying config sha256:d9163e7cf7ac58cb946d2fc50beee7e4affed4d3f677f7319abe773e2f999285
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/cjn-common/httpdcjn@sha256:f1af5ba70aa28504f1e49e5c103895b12848a537b76808d70d0661b7d3422c77
+STEP 1: FROM image-registry.openshift-image-registry.svc:5000/cjn-common/httpdcjn@sha256:f1af5ba70aa28504f1e49e5c103895b12848a537b76808d70d0661b7d3422c77
+STEP 2: LABEL "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/cjn-common/httpdcjn@sha256:f1af5ba70aa28504f1e49e5c103895b12848a537b76808d70d0661b7d3422c77"       "io.openshift.build.commit.author"="Student User <student@workstation.lab.example.com>"       "io.openshift.build.commit.date"="Wed Aug 12 22:30:05 2020 +0000"       "io.openshift.build.commit.id"="e35be174d0b0b19d0627d3676ada6cba81f8c606"       "io.openshift.build.commit.ref"="master"       "io.openshift.build.commit.message"="reversing change"       "io.openshift.build.source-location"="https://github.com/cjneto/DO288-apps"       "io.openshift.build.source-context-dir"="html-helloworld"
+STEP 3: ENV OPENSHIFT_BUILD_NAME="hello-2"     OPENSHIFT_BUILD_NAMESPACE="cjn-common"     OPENSHIFT_BUILD_SOURCE="https://github.com/cjneto/DO288-apps"     OPENSHIFT_BUILD_COMMIT="e35be174d0b0b19d0627d3676ada6cba81f8c606"
+STEP 4: USER root
+STEP 5: COPY upload/src /tmp/src
+STEP 6: RUN chown -R 1001:0 /tmp/src
+STEP 7: USER 1001
+STEP 8: RUN /usr/libexec/s2i/assemble
+---> Enabling s2i support in httpd24 image
+    AllowOverride All
+---> Installing application source
+=> sourcing 20-copy-config.sh ...
+=> sourcing 40-ssl-certs.sh ...
+---> Generating SSL key pair for httpd...
+STEP 9: CMD /usr/libexec/s2i/run
+STEP 10: COMMIT temp.builder.openshift.io/cjn-common/hello-2:570e8409
+time="2020-09-11T12:48:35Z" level=info msg="Image operating system mismatch: image uses \"\", expecting \"linux\""
+time="2020-09-11T12:48:35Z" level=info msg="Image architecture mismatch: image uses \"\", expecting \"amd64\""
+Getting image source signatures
+Copying blob sha256:abc8c32bad762f509f729872b552e8366b9c71a863dc5e9e648dda04a7896e50
+Copying blob sha256:b9e30d7689db4040323cb65632888c37d96cbd60d0f05c4dd37e78b9b8a0566a
+Copying blob sha256:8b0dba9179a6a0d5de65c6b001c8c9c83eaa169ce526b22a33845ede8f74568c
+Copying blob sha256:709f1b6d299049e16a938f38b4ccf069d0c0d1e415d51ea1714ab6c3bcb4af12
+Copying blob sha256:a09938f3e70a21a3b4e68b76edd031324fbd4c3ffc8a5481ae9262fdf25112a6
+Copying config sha256:c4f70dbe8ec14f5fa690431f607182c9d6504d4055cd2fae4354a7e96ef81b7c
+Writing manifest to image destination
+Storing signatures
+--> c4f70dbe8ec
+c4f70dbe8ec14f5fa690431f607182c9d6504d4055cd2fae4354a7e96ef81b7c
+Getting image source signatures
+
+Pushing image image-registry.openshift-image-registry.svc:5000/cjn-common/hello:latest ...
+Copying blob sha256:a09938f3e70a21a3b4e68b76edd031324fbd4c3ffc8a5481ae9262fdf25112a6
+Copying blob sha256:e7021e0589e97471d99c4265b7c8e64da328e48f116b5f260353b2e0a2adb373
+Copying blob sha256:9a0a629e11c896fb5c92c3ede513fa50843042f978963a2a9e31288d1a7d5489
+Copying blob sha256:fc5b206e9329a1674dd9e8efbee45c9be28d0d0dcbabba3c6bb67a2f22cfcf2a
+Copying blob sha256:9e7a6dc796f0a75c560158a9f9e30fb8b5a90cb53edce9ffbdf5778406e4de39
+Copying config sha256:c4f70dbe8ec14f5fa690431f607182c9d6504d4055cd2fae4354a7e96ef81b7c
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/cjn-common/hello@sha256:a27b3ad7148639e763ff2b62c5624fea1fdb3a407eab4c74bc5873204db29702
+Push successful

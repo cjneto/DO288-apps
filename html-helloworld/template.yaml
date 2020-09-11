@@ -1,0 +1,41 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+labels:
+  template: httpd-cjn-tmplt
+message: |-
+  A simple template trying to make use of httpd image.
+  For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.
+metadata:
+  annotations:
+    description: An example http application.
+    openshift.io/display-name: httpd-cjne-tmplt
+    openshift.io/long-description: This template defines resources needed to develop
+      an http application, including a build configuration, and an application deployment
+      configuration.
+    openshift.io/provider-display-name: CJNETO, Inc.
+    openshift.io/support-url: https://access.redhat.com
+    tags: quickstart,httpds
+    template.openshift.io/bindable: "false"
+  labels:
+    cr.imperative/applied: "yes"
+  name: httpd-cjn-tmplty
+objects:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations: null
+    generation: 1
+    name: httpdcjn
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhscl/httpd-24-rhel7
+      generation: 1
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Local
