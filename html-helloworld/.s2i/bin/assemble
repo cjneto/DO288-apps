@@ -6,6 +6,7 @@ rc=$?
 
 if [ $rc -eq 0 ]; then
     echo "After successful assembling"
+    echo "info date: "$(date +%Y%m%d) > /opt/app-root/src/info.html
 else
     echo "After failed assembling"
 fi
