@@ -1,4 +1,4 @@
-FROM rhscl/s2i-core-rhel7:1
+FROM registry.redhat.io/rhscl/s2i-core-rhel7:1
 
 # Apache HTTP Server image.
 #
