@@ -2,7 +2,7 @@ from sanic import Sanic
 from sanic.response import json
 
 app = Sanic("App Name")
-#app.config.from_envvar("SETTINGS")
+app.config.from_envvar("SANIC_ENV")
 
 @app.route("/")
 async def test(request):
